@@ -1,0 +1,55 @@
+library(RSQLite)
+library(tidyverse)
+#connect to the database with the dbConnect function
+#this database is stored in a folder on the server
+mtsthelens <- read_csv("st_helens.csv")
+library(RSQLite)
+library(tidyverse)
+#connect to the database with the dbConnect function
+#this database is stored in a folder on the server
+con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+chmod +x find_rare_birds
+$ cd /data/ch02
+cd /data/ch02
+pwd
+curl -sL "https://www.gutenberg.ord/files/11/11-0.txt"
+#!/bin/bash
+# ============================================================
+# find_rare_birds
+# ------------------------------------------------------------
+# This script identifies rare bird sightings from CSV files.
+#
+# Usage:
+#   ./find_rare_birds file1.csv file2.csv ...
+#
+# Output:
+#   rare_birds.csv          -> species observed exactly once overall
+#   rare_birds_yearly.csv   -> species observed once per year
+#
+# Requirements:
+#   - Input files must be CSV with consistent column structure
+#   - Header must be present
+#
+# Author: [Your Name]
+# ============================================================
+# Check if input is provided
+if [ "$#" -eq 0 ]; then
+#!/bin/bash
+# ============================================================
+# find_rare_birds
+# ------------------------------------------------------------
+# This script identifies rare bird sightings from CSV files.
+#
+# Usage:
+#   ./find_rare_birds file1.csv file2.csv ...
+#
+# Output:
+#   rare_birds.csv          -> species observed exactly once overall
+#   rare_birds_yearly.csv   -> species observed once per year
+#
+# Author: [Bailey Chapman]
+# ============================================================
+# Check if input is provided
+if [ "$#" -eq 0 ]; then
+chmod +x find_rare_birds
+q()

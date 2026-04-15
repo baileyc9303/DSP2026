@@ -1,0 +1,5 @@
+library(tidyverse)
+getwd()
+list.files()
+feeder_data <- read_csv("/home/shared/feederwatch/filename.csv")
+list.files("/", recursive = FALSE)

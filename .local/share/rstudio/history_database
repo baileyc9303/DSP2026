@@ -1,0 +1,1521 @@
+1771431942284:library(RSQLite)
+1771431942488:library(tidyverse)
+1771431943475:#connect to the database with the dbConnect function
+1771431943475:#this database is stored in a folder on the server
+1771431943475:mtsthelens <- read_csv("st_helens.csv")
+1771431949970:library(RSQLite)
+1771431949971:library(tidyverse)
+1771431949971:#connect to the database with the dbConnect function
+1771431949971:#this database is stored in a folder on the server
+1771431949971:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432128957:library(RSQLite)
+1771432129145:library(tidyverse)
+1771432130294:#connect to the database with the dbConnect function
+1771432130294:#this database is stored in a folder on the server
+1771432130295:mtsthelens <- read_csv("st_helens.csv")
+1771432136105:library(RSQLite)
+1771432136105:library(tidyverse)
+1771432136106:#connect to the database with the dbConnect function
+1771432136106:#this database is stored in a folder on the server
+1771432136106:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432136112:cbListTables(con)
+1771432145902:library(RSQLite)
+1771432145902:library(tidyverse)
+1771432145903:#connect to the database with the dbConnect function
+1771432145903:#this database is stored in a folder on the server
+1771432145903:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432145936:dbListTables(con)
+1771432145939:#connect to your data tables
+1771432145939:#don’t actually load the data into memory yet
+1771432145939:plot_data <- tbl(con, "plot_data")
+1771432146043:plot_info <- tbl(con, "plot_info")
+1771432146048:#information in a data table
+1771432146048:dbListFields(con, "plot_data")
+1771432146050:# Now use dplyr verbs - they'll be translated to SQL
+1771432146050:eightyone <- plot_data %>%
+1771432146050:filter(year == 1981) %>%
+1771432146051:collect()  # execute and return to R
+1771432146091:#don’t forget to disconnect
+1771432146091:dbDisconnect(conn = con)
+1771432235904:library(RSQLite)
+1771432235904:library(tidyverse)
+1771432235904:#connect to the database with the dbConnect function
+1771432235904:#this database is stored in a folder on the server
+1771432235905:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432235907:dbListTables(con)
+1771432241457:library(RSQLite)
+1771432241457:library(tidyverse)
+1771432241458:#connect to the database with the dbConnect function
+1771432241458:#this database is stored in a folder on the server
+1771432241458:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432241460:dbListTables(con)
+1771432241461:#connect to your data tables
+1771432241462:#don’t actually load the data into memory yet
+1771432241462:plot_data <- tbl(con, "plot_data")
+1771432241467:plot_info <- tbl(con, "plot_info")
+1771432244969:library(RSQLite)
+1771432244969:library(tidyverse)
+1771432244970:#connect to the database with the dbConnect function
+1771432244970:#this database is stored in a folder on the server
+1771432244970:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432244972:dbListTables(con)
+1771432244973:#connect to your data tables
+1771432244973:#don’t actually load the data into memory yet
+1771432244974:plot_data <- tbl(con, "plot_data")
+1771432244979:plot_info <- tbl(con, "plot_info")
+1771432244984:#information in a data table
+1771432244984:dbListFields(con, "plot_data")
+1771432265124:library(RSQLite)
+1771432265124:library(tidyverse)
+1771432265125:#connect to the database with the dbConnect function
+1771432265125:#this database is stored in a folder on the server
+1771432265125:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432265127:dbListTables(con)
+1771432265128:#connect to your data tables
+1771432265129:#don’t actually load the data into memory yet
+1771432265129:plot_data <- tbl(con, "plot_data")
+1771432265134:plot_info <- tbl(con, "plot_info")
+1771432265140:#information in a data table
+1771432265140:dbListFields(con, "plot_data")
+1771432265141:# Now use dplyr verbs - they'll be translated to SQL
+1771432265142:eightyone <- plot_data %>%
+1771432265142:filter(year == 1981) %>%
+1771432265142:summarize(mean(richness))
+1771432265199:collect()  # execute and return to R
+1771432280334:library(RSQLite)
+1771432280335:library(tidyverse)
+1771432280335:#connect to the database with the dbConnect function
+1771432280335:#this database is stored in a folder on the server
+1771432280335:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432280337:dbListTables(con)
+1771432280339:#connect to your data tables
+1771432280339:#don’t actually load the data into memory yet
+1771432280339:plot_data <- tbl(con, "plot_data")
+1771432280344:plot_info <- tbl(con, "plot_info")
+1771432280350:#information in a data table
+1771432280350:dbListFields(con, "plot_data")
+1771432280351:# Now use dplyr verbs - they'll be translated to SQL
+1771432280351:eightyone <- plot_data %>%
+1771432280352:filter(richness) %>%
+1771432280352:collect()  # execute and return to R
+1771432280367:#don’t forget to disconnect
+1771432280367:dbDisconnect(conn = con)
+1771432280367:db_filtered <- plot_data %>%
+1771432280367:filter(year == 1981) %>%
+1771432280367:collect()
+1771432284750:library(RSQLite)
+1771432284751:library(tidyverse)
+1771432284751:#connect to the database with the dbConnect function
+1771432284751:#this database is stored in a folder on the server
+1771432284751:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432284753:dbListTables(con)
+1771432284754:#connect to your data tables
+1771432284755:#don’t actually load the data into memory yet
+1771432284755:plot_data <- tbl(con, "plot_data")
+1771432284761:plot_info <- tbl(con, "plot_info")
+1771432284766:#information in a data table
+1771432284766:dbListFields(con, "plot_data")
+1771432284768:# Now use dplyr verbs - they'll be translated to SQL
+1771432284768:eightyone <- plot_data %>%
+1771432284768:filter(year == 1981) %>%
+1771432284768:collect()  # execute and return to R
+1771432284782:#don’t forget to disconnect
+1771432284783:dbDisconnect(conn = con)
+1771432284783:db_filtered <- plot_data %>%
+1771432284783:filter(year == 1981) %>%
+1771432284783:collect()
+1771432307737:library(RSQLite)
+1771432307738:library(tidyverse)
+1771432307738:#connect to the database with the dbConnect function
+1771432307738:#this database is stored in a folder on the server
+1771432307738:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432307740:dbListTables(con)
+1771432307742:#connect to your data tables
+1771432307742:#don’t actually load the data into memory yet
+1771432307742:plot_data <- tbl(con, "plot_data")
+1771432307747:plot_info <- tbl(con, "plot_info")
+1771432307752:#information in a data table
+1771432307753:dbListFields(con, "plot_data")
+1771432307754:# Now use dplyr verbs - they'll be translated to SQL
+1771432307754:eightyone <- plot_data %>%
+1771432307754:filter(year == 1981) %>%
+1771432307754:collect()  # execute and return to R
+1771432307768:#don’t forget to disconnect
+1771432307768:dbDisconnect(conn = con)
+1771432307768:db_filtered <- plot_data %>%
+1771432307768:filter(year == 1981)
+1771432307773:dbDisconnect(conn = con)
+1771432311107:library(RSQLite)
+1771432311108:library(tidyverse)
+1771432311108:#connect to the database with the dbConnect function
+1771432311108:#this database is stored in a folder on the server
+1771432311108:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432311110:dbListTables(con)
+1771432311112:#connect to your data tables
+1771432311112:#don’t actually load the data into memory yet
+1771432311112:plot_data <- tbl(con, "plot_data")
+1771432311118:plot_info <- tbl(con, "plot_info")
+1771432311123:#information in a data table
+1771432311123:dbListFields(con, "plot_data")
+1771432311125:# Now use dplyr verbs - they'll be translated to SQL
+1771432311125:eightyone <- plot_data %>%
+1771432311125:filter(year == 1981) %>%
+1771432311125:collect()  # execute and return to R
+1771432311139:#don’t forget to disconnect
+1771432311139:dbDisconnect(conn = con)
+1771432311140:db_filtered <- plot_data %>%
+1771432311140:filter(year == 1981)
+1771432347378:library(RSQLite)
+1771432347378:library(tidyverse)
+1771432347379:#connect to the database with the dbConnect function
+1771432347379:#this database is stored in a folder on the server
+1771432347379:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432347381:dbListTables(con)
+1771432347382:#connect to your data tables
+1771432347382:#don’t actually load the data into memory yet
+1771432347383:plot_data <- tbl(con, "plot_data")
+1771432347388:plot_info <- tbl(con, "plot_info")
+1771432347394:#information in a data table
+1771432347394:dbListFields(con, "plot_data")
+1771432347395:# Now use dplyr verbs - they'll be translated to SQL
+1771432347395:eightyone <- plot_data %>%
+1771432347395:filter(year == 1981) %>%
+1771432347395:collect()  # execute and return to R
+1771432347409:#don’t forget to disconnect
+1771432347410:dbDisconnect(conn = con)
+1771432347410:db_filtered <- plot_data %>%
+1771432347410:filter(year) %>%
+1771432357053:library(RSQLite)
+1771432367684:library(RSQLite)
+1771432367684:library(tidyverse)
+1771432367684:#connect to the database with the dbConnect function
+1771432367685:#this database is stored in a folder on the server
+1771432367685:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432367687:dbListTables(con)
+1771432367688:#connect to your data tables
+1771432367688:#don’t actually load the data into memory yet
+1771432367689:plot_data <- tbl(con, "plot_data")
+1771432367694:plot_info <- tbl(con, "plot_info")
+1771432367699:#information in a data table
+1771432367700:dbListFields(con, "plot_data")
+1771432367701:# Now use dplyr verbs - they'll be translated to SQL
+1771432367701:eightyone <- plot_data %>%
+1771432367701:filter(year == 1981) %>%
+1771432367701:collect()  # execute and return to R
+1771432367724:#don’t forget to disconnect
+1771432367724:dbDisconnect(conn = con)
+1771432367725:db_filtered <- plot_data %>%
+1771432367725:filter(year) %>%
+1771432367725:group_by(richness)
+1771432367730:db_filtered
+1771432375567:library(RSQLite)
+1771432375567:library(tidyverse)
+1771432375568:#connect to the database with the dbConnect function
+1771432375568:#this database is stored in a folder on the server
+1771432375568:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432375570:dbListTables(con)
+1771432375571:#connect to your data tables
+1771432375572:#don’t actually load the data into memory yet
+1771432375572:plot_data <- tbl(con, "plot_data")
+1771432375577:plot_info <- tbl(con, "plot_info")
+1771432375583:#information in a data table
+1771432375583:dbListFields(con, "plot_data")
+1771432375584:# Now use dplyr verbs - they'll be translated to SQL
+1771432375584:eightyone <- plot_data %>%
+1771432375584:filter(year == 1981) %>%
+1771432375584:collect()  # execute and return to R
+1771432375598:#don’t forget to disconnect
+1771432375598:dbDisconnect(conn = con)
+1771432375599:db_filtered <- plot_data %>%
+1771432375599:filter(year) %>%
+1771432375599:group_by(richness)
+1771432375604:collect()
+1771432379275:library(RSQLite)
+1771432379276:library(tidyverse)
+1771432379276:#connect to the database with the dbConnect function
+1771432379276:#this database is stored in a folder on the server
+1771432379276:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432379278:dbListTables(con)
+1771432379280:#connect to your data tables
+1771432379280:#don’t actually load the data into memory yet
+1771432379280:plot_data <- tbl(con, "plot_data")
+1771432379286:plot_info <- tbl(con, "plot_info")
+1771432379292:#information in a data table
+1771432379293:dbListFields(con, "plot_data")
+1771432379294:# Now use dplyr verbs - they'll be translated to SQL
+1771432379294:eightyone <- plot_data %>%
+1771432379294:filter(year == 1981) %>%
+1771432379294:collect()  # execute and return to R
+1771432379310:#don’t forget to disconnect
+1771432379310:dbDisconnect(conn = con)
+1771432379310:db_filtered <- plot_data %>%
+1771432379311:filter(year) %>%
+1771432379311:group_by(richness)
+1771432379316:collect()
+1771432423700:library(RSQLite)
+1771432423700:library(tidyverse)
+1771432423701:#connect to the database with the dbConnect function
+1771432423701:#this database is stored in a folder on the server
+1771432423701:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432423703:dbListTables(con)
+1771432423704:#connect to your data tables
+1771432423704:#don’t actually load the data into memory yet
+1771432423705:plot_data <- tbl(con, "plot_data")
+1771432423710:plot_info <- tbl(con, "plot_info")
+1771432423716:#information in a data table
+1771432423716:dbListFields(con, "plot_data")
+1771432423717:# Now use dplyr verbs - they'll be translated to SQL
+1771432423717:eightyone <- plot_data %>%
+1771432423717:filter(year == 1981) %>%
+1771432423717:collect()  # execute and return to R
+1771432423731:#don’t forget to disconnect
+1771432423731:dbDisconnect(conn = con)
+1771432423732:db_filtered <- plot_data %>%
+1771432423732:filter(year == 1981:2000) %>%
+1771432423732:group_by(richness)
+1771432423737:collect()
+1771432431752:library(RSQLite)
+1771432431752:library(tidyverse)
+1771432431752:#connect to the database with the dbConnect function
+1771432431752:#this database is stored in a folder on the server
+1771432431753:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432431755:dbListTables(con)
+1771432431756:#connect to your data tables
+1771432431756:#don’t actually load the data into memory yet
+1771432431756:plot_data <- tbl(con, "plot_data")
+1771432431762:plot_info <- tbl(con, "plot_info")
+1771432431767:#information in a data table
+1771432431767:dbListFields(con, "plot_data")
+1771432431768:# Now use dplyr verbs - they'll be translated to SQL
+1771432431768:eightyone <- plot_data %>%
+1771432431768:filter(year == 1981) %>%
+1771432431769:collect()  # execute and return to R
+1771432431783:#don’t forget to disconnect
+1771432431783:dbDisconnect(conn = con)
+1771432431783:db_filtered <- plot_data %>%
+1771432431783:filter(year == 1981:2000) %>%
+1771432431784:group_by(richness) %>%
+1771432431784:collect()
+1771432481819:library(RSQLite)
+1771432481820:library(tidyverse)
+1771432481820:#connect to the database with the dbConnect function
+1771432481820:#this database is stored in a folder on the server
+1771432481820:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432481822:dbListTables(con)
+1771432481824:#connect to your data tables
+1771432481824:#don’t actually load the data into memory yet
+1771432481824:plot_data <- tbl(con, "plot_data")
+1771432481830:plot_info <- tbl(con, "plot_info")
+1771432481835:#information in a data table
+1771432481835:dbListFields(con, "plot_data")
+1771432481836:head(con)
+1771432509286:library(RSQLite)
+1771432509286:library(tidyverse)
+1771432509287:#connect to the database with the dbConnect function
+1771432509287:#this database is stored in a folder on the server
+1771432509287:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432509289:dbListTables(con)
+1771432509290:#connect to your data tables
+1771432509290:#don’t actually load the data into memory yet
+1771432509291:plot_data <- tbl(con, "plot_data")
+1771432509296:plot_info <- tbl(con, "plot_info")
+1771432509301:#information in a data table
+1771432509302:dbListFields(con, "plot_data")
+1771432509303:# Now use dplyr verbs - they'll be translated to SQL
+1771432509303:eightyone <- plot_data %>%
+1771432509303:filter(year == 1981) %>%
+1771432509303:collect()  # execute and return to R
+1771432509317:#don’t forget to disconnect
+1771432509317:dbDisconnect(conn = con)
+1771432509317:db_filtered <- plot_data %>%
+1771432509317:filter(plot_name == ABPL) %>%
+1771432509318:group_by(richness) %>%
+1771432509318:collect()
+1771432517398:library(RSQLite)
+1771432517399:library(tidyverse)
+1771432517399:#connect to the database with the dbConnect function
+1771432517399:#this database is stored in a folder on the server
+1771432517399:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432517401:dbListTables(con)
+1771432517403:#connect to your data tables
+1771432517403:#don’t actually load the data into memory yet
+1771432517403:plot_data <- tbl(con, "plot_data")
+1771432517409:plot_info <- tbl(con, "plot_info")
+1771432517414:#information in a data table
+1771432517414:dbListFields(con, "plot_data")
+1771432517415:# Now use dplyr verbs - they'll be translated to SQL
+1771432517415:eightyone <- plot_data %>%
+1771432517416:filter(year == 1981) %>%
+1771432517416:collect()  # execute and return to R
+1771432517430:#don’t forget to disconnect
+1771432517430:dbDisconnect(conn = con)
+1771432517430:db_filtered <- plot_data %>%
+1771432517430:filter(plot_name == "ABPL") %>%
+1771432517430:group_by(richness) %>%
+1771432517430:collect()
+1771432539510:library(RSQLite)
+1771432539510:library(tidyverse)
+1771432539511:#connect to the database with the dbConnect function
+1771432539511:#this database is stored in a folder on the server
+1771432539511:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432539513:dbListTables(con)
+1771432539514:#connect to your data tables
+1771432539514:#don’t actually load the data into memory yet
+1771432539515:plot_data <- tbl(con, "plot_data")
+1771432539520:plot_info <- tbl(con, "plot_info")
+1771432539525:#information in a data table
+1771432539526:dbListFields(con, "plot_data")
+1771432539527:# Now use dplyr verbs - they'll be translated to SQL
+1771432539527:eightyone <- plot_data %>%
+1771432539527:filter(year == 1981) %>%
+1771432539527:collect()  # execute and return to R
+1771432539541:#don’t forget to disconnect
+1771432539541:dbDisconnect(conn = con)
+1771432539542:db_filtered <- plot_data %>%
+1771432539542:filter(plot_name == "ABPL") %>%
+1771432539542:filter(year == 1981) %>%
+1771432539542:group_by(richness) %>%
+1771432539542:collect()
+1771432580530:library(RSQLite)
+1771432580531:library(tidyverse)
+1771432580531:#connect to the database with the dbConnect function
+1771432580531:#this database is stored in a folder on the server
+1771432580531:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432580533:dbListTables(con)
+1771432580535:#connect to your data tables
+1771432580535:#don’t actually load the data into memory yet
+1771432580535:plot_data <- tbl(con, "plot_data")
+1771432580541:plot_info <- tbl(con, "plot_info")
+1771432580546:#information in a data table
+1771432580546:dbListFields(con, "plot_data")
+1771432580548:# Now use dplyr verbs - they'll be translated to SQL
+1771432580548:eightyone <- plot_data %>%
+1771432580548:filter(year == 1981) %>%
+1771432580548:collect()  # execute and return to R
+1771432580563:db_filtered <- plot_data %>%
+1771432580563:filter(plot_name == "ABPL") %>%
+1771432580563:filter(year == 1981) %>%
+1771432580563:group_by(richness) %>%
+1771432580563:collect()
+1771432587334:library(RSQLite)
+1771432587334:library(tidyverse)
+1771432587334:#connect to the database with the dbConnect function
+1771432587334:#this database is stored in a folder on the server
+1771432587334:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432587337:dbListTables(con)
+1771432587338:#connect to your data tables
+1771432587338:#don’t actually load the data into memory yet
+1771432587338:plot_data <- tbl(con, "plot_data")
+1771432587344:plot_info <- tbl(con, "plot_info")
+1771432587350:#information in a data table
+1771432587350:dbListFields(con, "plot_data")
+1771432587351:# Now use dplyr verbs - they'll be translated to SQL
+1771432587352:eightyone <- plot_data %>%
+1771432587352:filter(year == 1981) %>%
+1771432587352:collect()  # execute and return to R
+1771432587367:db_filtered <- plot_data %>%
+1771432587367:filter(plot_name == "ABPL") %>%
+1771432587367:filter(year == 1981) %>%
+1771432587367:group_by(richness) %>%
+1771432587367:collect()
+1771432587388:db_filtered
+1771432592732:library(RSQLite)
+1771432592732:library(tidyverse)
+1771432592733:#connect to the database with the dbConnect function
+1771432592733:#this database is stored in a folder on the server
+1771432592733:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432592735:dbListTables(con)
+1771432592736:#connect to your data tables
+1771432592736:#don’t actually load the data into memory yet
+1771432592737:plot_data <- tbl(con, "plot_data")
+1771432592742:plot_info <- tbl(con, "plot_info")
+1771432592748:#information in a data table
+1771432592748:dbListFields(con, "plot_data")
+1771432592749:# Now use dplyr verbs - they'll be translated to SQL
+1771432592749:eightyone <- plot_data %>%
+1771432592749:filter(year == 1981) %>%
+1771432592750:collect()  # execute and return to R
+1771432592763:db_filtered <- plot_data %>%
+1771432592764:filter(plot_name == "ABPL") %>%
+1771432592764:filter(year == 1981) %>%
+1771432592764:group_by(richness) %>%
+1771432592764:collect()
+1771432592795:#don’t forget to disconnect
+1771432592796:dbDisconnect(conn = con)
+1771432601464:library(RSQLite)
+1771432601465:library(tidyverse)
+1771432601465:#connect to the database with the dbConnect function
+1771432601465:#this database is stored in a folder on the server
+1771432601465:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432601467:dbListTables(con)
+1771432601469:#connect to your data tables
+1771432601469:#don’t actually load the data into memory yet
+1771432601469:plot_data <- tbl(con, "plot_data")
+1771432601474:plot_info <- tbl(con, "plot_info")
+1771432601480:#information in a data table
+1771432601480:dbListFields(con, "plot_data")
+1771432601481:# Now use dplyr verbs - they'll be translated to SQL
+1771432601481:eightyone <- plot_data %>%
+1771432601481:filter(year == 1981) %>%
+1771432601481:collect()  # execute and return to R
+1771432601495:db_filtered <- plot_data %>%
+1771432601496:filter(plot_name == "ABPL") %>%
+1771432601496:filter(year == 1981) %>%
+1771432601496:group_by(richness) %>%
+1771432601496:collect()
+1771432601536:plot(db_filtered)
+1771432608077:library(RSQLite)
+1771432608078:library(tidyverse)
+1771432608078:#connect to the database with the dbConnect function
+1771432608078:#this database is stored in a folder on the server
+1771432608078:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432608081:dbListTables(con)
+1771432608082:#connect to your data tables
+1771432608082:#don’t actually load the data into memory yet
+1771432608082:plot_data <- tbl(con, "plot_data")
+1771432608088:plot_info <- tbl(con, "plot_info")
+1771432608093:#information in a data table
+1771432608093:dbListFields(con, "plot_data")
+1771432608094:# Now use dplyr verbs - they'll be translated to SQL
+1771432608095:eightyone <- plot_data %>%
+1771432608095:filter(year == 1981) %>%
+1771432608095:collect()  # execute and return to R
+1771432608109:db_filtered <- plot_data %>%
+1771432608109:filter(plot_name == "ABPL") %>%
+1771432608109:filter(year == 1981) %>%
+1771432608109:group_by(richness) %>%
+1771432608109:collect()
+1771432608140:plot(db_filtered)
+1771432611017:library(RSQLite)
+1771432611017:library(tidyverse)
+1771432611017:#connect to the database with the dbConnect function
+1771432611017:#this database is stored in a folder on the server
+1771432611017:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432611019:dbListTables(con)
+1771432611021:#connect to your data tables
+1771432611021:#don’t actually load the data into memory yet
+1771432611021:plot_data <- tbl(con, "plot_data")
+1771432611027:plot_info <- tbl(con, "plot_info")
+1771432611032:#information in a data table
+1771432611032:dbListFields(con, "plot_data")
+1771432611034:# Now use dplyr verbs - they'll be translated to SQL
+1771432611034:eightyone <- plot_data %>%
+1771432611034:filter(year == 1981) %>%
+1771432611034:collect()  # execute and return to R
+1771432611048:db_filtered <- plot_data %>%
+1771432611048:filter(plot_name == "ABPL") %>%
+1771432611048:filter(year == 1981) %>%
+1771432611049:group_by(richness) %>%
+1771432611049:collect()
+1771432611069:#don’t forget to disconnect
+1771432611070:# dbDisconnect(conn = con)
+1771432629105:library(RSQLite)
+1771432629105:library(tidyverse)
+1771432629106:#connect to the database with the dbConnect function
+1771432629106:#this database is stored in a folder on the server
+1771432629106:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432629108:dbListTables(con)
+1771432629109:#connect to your data tables
+1771432629109:#don’t actually load the data into memory yet
+1771432629110:plot_data <- tbl(con, "plot_data")
+1771432629115:plot_info <- tbl(con, "plot_info")
+1771432629120:#information in a data table
+1771432629121:dbListFields(con, "plot_data")
+1771432629122:# Now use dplyr verbs - they'll be translated to SQL
+1771432629122:eightyone <- plot_data %>%
+1771432629122:filter(year == 1981) %>%
+1771432629122:collect()  # execute and return to R
+1771432629136:db_filtered <- plot_data %>%
+1771432629136:filter(plot_name == "ABPL") %>%
+1771432629136:filter(year == 1981) %>%
+1771432629137:group_by(richness) %>%
+1771432629137:collect()
+1771432629167:plot(everyone_one)
+1771432657326:library(RSQLite)
+1771432657327:library(tidyverse)
+1771432657327:#connect to the database with the dbConnect function
+1771432657327:#this database is stored in a folder on the server
+1771432657327:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432657329:dbListTables(con)
+1771432657331:#connect to your data tables
+1771432657331:#don’t actually load the data into memory yet
+1771432657331:plot_data <- tbl(con, "plot_data")
+1771432657337:plot_info <- tbl(con, "plot_info")
+1771432657342:#information in a data table
+1771432657342:dbListFields(con, "plot_data")
+1771432657343:# Now use dplyr verbs - they'll be translated to SQL
+1771432657343:eightyone <- plot_data %>%
+1771432657344:filter(year == 1981) %>%
+1771432657344:collect()  # execute and return to R
+1771432657358:db_filtered <- plot_data %>%
+1771432657358:filter(plot_name == "ABPL") %>%
+1771432657358:filter(year) %>%
+1771432657358:group_by(richness) %>%
+1771432657358:collect()
+1771432657380:#don’t forget to disconnect
+1771432657380:# dbDisconnect(conn = con)
+1771432666845:library(RSQLite)
+1771432666845:library(tidyverse)
+1771432666846:#connect to the database with the dbConnect function
+1771432666846:#this database is stored in a folder on the server
+1771432666846:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432666848:dbListTables(con)
+1771432666850:#connect to your data tables
+1771432666850:#don’t actually load the data into memory yet
+1771432666850:plot_data <- tbl(con, "plot_data")
+1771432666856:plot_info <- tbl(con, "plot_info")
+1771432666861:#information in a data table
+1771432666861:dbListFields(con, "plot_data")
+1771432666862:# Now use dplyr verbs - they'll be translated to SQL
+1771432666862:eightyone <- plot_data %>%
+1771432666863:filter(year == 1981) %>%
+1771432666863:collect()  # execute and return to R
+1771432666885:db_filtered <- plot_data %>%
+1771432666885:filter(plot_name == "ABPL") %>%
+1771432666886:group_by(year) %>%
+1771432666886:group_by(richness) %>%
+1771432666886:collect()
+1771432666902:#don’t forget to disconnect
+1771432666902:# dbDisconnect(conn = con)
+1771432683344:library(RSQLite)
+1771432683345:library(tidyverse)
+1771432683345:#connect to the database with the dbConnect function
+1771432683345:#this database is stored in a folder on the server
+1771432683345:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432683347:dbListTables(con)
+1771432683349:#connect to your data tables
+1771432683349:#don’t actually load the data into memory yet
+1771432683349:plot_data <- tbl(con, "plot_data")
+1771432683355:plot_info <- tbl(con, "plot_info")
+1771432683360:#information in a data table
+1771432683360:dbListFields(con, "plot_data")
+1771432683361:# Now use dplyr verbs - they'll be translated to SQL
+1771432683362:eightyone <- plot_data %>%
+1771432683362:filter(year == 1981) %>%
+1771432683362:collect()  # execute and return to R
+1771432683376:db_filtered <- plot_data %>%
+1771432683376:filter(plot_name == "ABPL") %>%
+1771432683376:group_by(year) %>%
+1771432683376:group_by(richness) %>%
+1771432683376:collect()
+1771432683392:#don’t forget to disconnect
+1771432683392:# dbDisconnect(conn = con)
+1771432689601:library(RSQLite)
+1771432689601:library(tidyverse)
+1771432689602:#connect to the database with the dbConnect function
+1771432689602:#this database is stored in a folder on the server
+1771432689602:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432689604:dbListTables(con)
+1771432689605:#connect to your data tables
+1771432689605:#don’t actually load the data into memory yet
+1771432689606:plot_data <- tbl(con, "plot_data")
+1771432689611:plot_info <- tbl(con, "plot_info")
+1771432689617:#information in a data table
+1771432689617:dbListFields(con, "plot_data")
+1771432689618:# Now use dplyr verbs - they'll be translated to SQL
+1771432689618:eightyone <- plot_data %>%
+1771432689618:filter(year == 1981) %>%
+1771432689619:collect()  # execute and return to R
+1771432689642:db_filtered <- plot_data %>%
+1771432689642:filter(plot_name == "ABPL") %>%
+1771432689642:group_by(year) %>%
+1771432689642:group_by(richness) %>%
+1771432689643:collect()
+1771432689659:plot(plot_data)
+1771432761417:library(RSQLite)
+1771432761417:library(tidyverse)
+1771432761418:#connect to the database with the dbConnect function
+1771432761418:#this database is stored in a folder on the server
+1771432761418:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432761420:dbListTables(con)
+1771432761422:#connect to your data tables
+1771432761422:#don’t actually load the data into memory yet
+1771432761422:plot_data <- tbl(con, "plot_data")
+1771432761428:plot_info <- tbl(con, "plot_info")
+1771432761433:#information in a data table
+1771432761433:dbListFields(con, "plot_data")
+1771432761434:# Now use dplyr verbs - they'll be translated to SQL
+1771432761435:eightyone <- plot_data %>%
+1771432761435:filter(year == 1981) %>%
+1771432761435:collect()  # execute and return to R
+1771432761448:db_filtered <- plot_data %>%
+1771432761449:filter(plot_name == "ABPL") %>%
+1771432761449:group_by(year) %>%
+1771432761449:group_by(richness) %>%
+1771432761449:collect()
+1771432761465:summary(db_filtered)
+1771432761470:#don’t forget to disconnect
+1771432761470:# dbDisconnect(conn = con)
+1771432787570:library(RSQLite)
+1771432787570:library(tidyverse)
+1771432787571:#connect to the database with the dbConnect function
+1771432787571:#this database is stored in a folder on the server
+1771432787571:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432787573:dbListTables(con)
+1771432787575:#connect to your data tables
+1771432787575:#don’t actually load the data into memory yet
+1771432787575:plot_data <- tbl(con, "plot_data")
+1771432787581:plot_info <- tbl(con, "plot_info")
+1771432787586:#information in a data table
+1771432787586:dbListFields(con, "plot_data")
+1771432787587:# Now use dplyr verbs - they'll be translated to SQL
+1771432787588:eightyone <- plot_data %>%
+1771432787588:filter(year == 1981) %>%
+1771432787588:collect()  # execute and return to R
+1771432787612:db_filtered <- plot_data %>%
+1771432787612:filter(plot_name == "ABPL") %>%
+1771432787612:group_by(year) %>%
+1771432787612:group_by(richness) %>%
+1771432787612:collect()
+1771432787629:head(db_filtered)
+1771432787661:#don’t forget to disconnect
+1771432787661:# dbDisconnect(conn = con)
+1771432802455:library(RSQLite)
+1771432802455:library(tidyverse)
+1771432802456:#connect to the database with the dbConnect function
+1771432802456:#this database is stored in a folder on the server
+1771432802456:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432802458:dbListTables(con)
+1771432802459:#connect to your data tables
+1771432802460:#don’t actually load the data into memory yet
+1771432802460:plot_data <- tbl(con, "plot_data")
+1771432802465:plot_info <- tbl(con, "plot_info")
+1771432802471:#information in a data table
+1771432802471:dbListFields(con, "plot_data")
+1771432802472:# Now use dplyr verbs - they'll be translated to SQL
+1771432802473:eightyone <- plot_data %>%
+1771432802473:filter(year == 1981) %>%
+1771432802473:collect()  # execute and return to R
+1771432802487:db_filtered <- plot_data %>%
+1771432802488:filter(plot_name == "ABPL") %>%
+1771432802488:group_by(year) %>%
+1771432802488:group_by(richness) %>%
+1771432802488:collect()
+1771432802505:head(db_filtered)
+1771432802538:ncol(db_filtered$plot_name)
+1771432802538:#don’t forget to disconnect
+1771432802538:# dbDisconnect(conn = con)
+1771432816481:library(RSQLite)
+1771432816481:library(tidyverse)
+1771432816481:#connect to the database with the dbConnect function
+1771432816481:#this database is stored in a folder on the server
+1771432816481:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432816484:dbListTables(con)
+1771432816485:#connect to your data tables
+1771432816485:#don’t actually load the data into memory yet
+1771432816485:plot_data <- tbl(con, "plot_data")
+1771432816491:plot_info <- tbl(con, "plot_info")
+1771432816496:#information in a data table
+1771432816496:dbListFields(con, "plot_data")
+1771432816498:# Now use dplyr verbs - they'll be translated to SQL
+1771432816498:eightyone <- plot_data %>%
+1771432816498:filter(year == 1981) %>%
+1771432816498:collect()  # execute and return to R
+1771432816512:db_filtered <- plot_data %>%
+1771432816512:filter(plot_name == "ABPL") %>%
+1771432816512:group_by(year) %>%
+1771432816512:group_by(richness) %>%
+1771432816512:collect()
+1771432816529:db_filtered
+1771432816553:#don’t forget to disconnect
+1771432816553:# dbDisconnect(conn = con)
+1771432842133:library(RSQLite)
+1771432842133:library(tidyverse)
+1771432842134:#connect to the database with the dbConnect function
+1771432842134:#this database is stored in a folder on the server
+1771432842134:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432842136:dbListTables(con)
+1771432842137:#connect to your data tables
+1771432842138:#don’t actually load the data into memory yet
+1771432842138:plot_data <- tbl(con, "plot_data")
+1771432842152:plot_info <- tbl(con, "plot_info")
+1771432842158:#information in a data table
+1771432842158:dbListFields(con, "plot_data")
+1771432842159:# Now use dplyr verbs - they'll be translated to SQL
+1771432842160:eightyone <- plot_data %>%
+1771432842160:filter(year == 1981) %>%
+1771432842160:collect()  # execute and return to R
+1771432842175:db_filtered <- plot_data %>%
+1771432842175:filter(plot_name == "ABPL") %>%
+1771432842176:group_by(year) %>%
+1771432842176:group_by(mean(richness)) %>%
+1771432842176:collect()
+1771432842230:db_filtered
+1771432842259:#don’t forget to disconnect
+1771432842259:# dbDisconnect(conn = con)
+1771432846871:library(RSQLite)
+1771432846872:library(tidyverse)
+1771432846872:#connect to the database with the dbConnect function
+1771432846872:#this database is stored in a folder on the server
+1771432846872:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432846874:dbListTables(con)
+1771432846876:#connect to your data tables
+1771432846876:#don’t actually load the data into memory yet
+1771432846876:plot_data <- tbl(con, "plot_data")
+1771432846882:plot_info <- tbl(con, "plot_info")
+1771432846888:#information in a data table
+1771432846888:dbListFields(con, "plot_data")
+1771432846899:# Now use dplyr verbs - they'll be translated to SQL
+1771432846899:eightyone <- plot_data %>%
+1771432846899:filter(year == 1981) %>%
+1771432846899:collect()  # execute and return to R
+1771432846914:db_filtered <- plot_data %>%
+1771432846914:filter(plot_name == "ABPL") %>%
+1771432846914:group_by(year) %>%
+1771432846914:group_by(mean(richness) %>%
+1771432846914:collect()
+1771432846915:db_filtered
+1771432867055:library(RSQLite)
+1771432867055:library(tidyverse)
+1771432867055:#connect to the database with the dbConnect function
+1771432867055:#this database is stored in a folder on the server
+1771432867056:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432867058:dbListTables(con)
+1771432867059:#connect to your data tables
+1771432867059:#don’t actually load the data into memory yet
+1771432867059:plot_data <- tbl(con, "plot_data")
+1771432867065:plot_info <- tbl(con, "plot_info")
+1771432867071:#information in a data table
+1771432867071:dbListFields(con, "plot_data")
+1771432867072:# Now use dplyr verbs - they'll be translated to SQL
+1771432867072:eightyone <- plot_data %>%
+1771432867072:filter(year == 1981) %>%
+1771432867073:collect()  # execute and return to R
+1771432867087:db_filtered <- plot_data %>%
+1771432867087:filter(plot_name == "ABPL") %>%
+1771432867087:group_by(year) %>%
+1771432867087:summarize(mean(richness)) %>%
+1771432867088:collect()
+1771432867157:db_filtered
+1771432867177:#don’t forget to disconnect
+1771432867177:# dbDisconnect(conn = con)
+1771432917927:library(RSQLite)
+1771432917927:library(tidyverse)
+1771432917928:#connect to the database with the dbConnect function
+1771432917928:#this database is stored in a folder on the server
+1771432917928:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432917930:dbListTables(con)
+1771432917932:#connect to your data tables
+1771432917932:#don’t actually load the data into memory yet
+1771432917932:plot_data <- tbl(con, "plot_data")
+1771432917938:plot_info <- tbl(con, "plot_info")
+1771432917943:#information in a data table
+1771432917944:dbListFields(con, "plot_data")
+1771432917945:# Now use dplyr verbs - they'll be translated to SQL
+1771432917945:eightyone <- plot_data %>%
+1771432917945:filter(year == 1981) %>%
+1771432917945:collect()  # execute and return to R
+1771432917959:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771432917960:db_filtered <- plot_data %>%
+1771432917960:filter(plot_name == "ABPL") %>%
+1771432917960:group_by(year) %>%
+1771432917960:summarize(mean(richness)) %>%
+1771432917960:collect()
+1771432918023:db_filtered
+1771432918033:plot(db_filtered)
+1771432918050:#don’t forget to disconnect
+1771432918050:# dbDisconnect(conn = con)
+1771432949375:library(RSQLite)
+1771432949375:library(tidyverse)
+1771432949375:#connect to the database with the dbConnect function
+1771432949375:#this database is stored in a folder on the server
+1771432949376:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432949378:dbListTables(con)
+1771432949379:#connect to your data tables
+1771432949379:#don’t actually load the data into memory yet
+1771432949379:plot_data <- tbl(con, "plot_data")
+1771432949385:plot_info <- tbl(con, "plot_info")
+1771432949390:#information in a data table
+1771432949390:dbListFields(con, "plot_data")
+1771432949391:# Now use dplyr verbs - they'll be translated to SQL
+1771432949391:eightyone <- plot_data %>%
+1771432949392:filter(year == 1981) %>%
+1771432949392:collect()  # execute and return to R
+1771432949406:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771432949406:db_filtered <- plot_data %>%
+1771432949407:filter(plot_name == "ABPL") %>%
+1771432949407:group_by(year) %>%
+1771432949407:summarize(mean(richness)) %>%
+1771432949407:collect()
+1771432949482:db_filtered
+1771432949494:boxplot(db_filtered,
+1771432949494:main = "Boxplot",
+1771432949494:col = "lightgreen")
+1771432949522:#don’t forget to disconnect
+1771432949522:# dbDisconnect(conn = con)
+1771432963295:library(RSQLite)
+1771432963295:library(tidyverse)
+1771432963296:#connect to the database with the dbConnect function
+1771432963296:#this database is stored in a folder on the server
+1771432963296:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432963307:dbListTables(con)
+1771432963309:#connect to your data tables
+1771432963309:#don’t actually load the data into memory yet
+1771432963309:plot_data <- tbl(con, "plot_data")
+1771432963315:plot_info <- tbl(con, "plot_info")
+1771432963321:#information in a data table
+1771432963321:dbListFields(con, "plot_data")
+1771432963322:# Now use dplyr verbs - they'll be translated to SQL
+1771432963322:eightyone <- plot_data %>%
+1771432963323:filter(year == 1981) %>%
+1771432963323:collect()  # execute and return to R
+1771432963338:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771432963338:db_filtered <- plot_data %>%
+1771432963338:filter(plot_name == "ABPL") %>%
+1771432963338:group_by(year) %>%
+1771432963338:summarize(mean(richness)) %>%
+1771432963338:collect()
+1771432963404:db_filtered
+1771432963414:plot(db_filtered,
+1771432963414:main = "Boxplot",
+1771432963414:col = "lightgreen")
+1771432963437:#don’t forget to disconnect
+1771432963437:# dbDisconnect(conn = con)
+1771432971750:library(RSQLite)
+1771432971750:library(tidyverse)
+1771432971750:#connect to the database with the dbConnect function
+1771432971750:#this database is stored in a folder on the server
+1771432971751:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771432971753:dbListTables(con)
+1771432971754:#connect to your data tables
+1771432971754:#don’t actually load the data into memory yet
+1771432971754:plot_data <- tbl(con, "plot_data")
+1771432971761:plot_info <- tbl(con, "plot_info")
+1771432971766:#information in a data table
+1771432971766:dbListFields(con, "plot_data")
+1771432971767:# Now use dplyr verbs - they'll be translated to SQL
+1771432971768:eightyone <- plot_data %>%
+1771432971768:filter(year == 1981) %>%
+1771432971768:collect()  # execute and return to R
+1771432971791:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771432971791:db_filtered <- plot_data %>%
+1771432971791:filter(plot_name == "ABPL") %>%
+1771432971791:group_by(year) %>%
+1771432971791:summarize(mean(richness)) %>%
+1771432971791:collect()
+1771432971853:db_filtered
+1771432971863:plot(db_filtered,
+1771432971863:main = "Plot :p",
+1771432971863:col = "blue")
+1771432971890:#don’t forget to disconnect
+1771432971890:# dbDisconnect(conn = con)
+1771433032091:library(RSQLite)
+1771433032091:library(tidyverse)
+1771433032092:#connect to the database with the dbConnect function
+1771433032092:#this database is stored in a folder on the server
+1771433032092:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433032096:dbListTables(con)
+1771433032098:#connect to your data tables
+1771433032098:#don’t actually load the data into memory yet
+1771433032099:plot_data <- tbl(con, "plot_data")
+1771433032107:plot_info <- tbl(con, "plot_info")
+1771433032114:#information in a data table
+1771433032114:dbListFields(con, "plot_data")
+1771433032116:# Now use dplyr verbs - they'll be translated to SQL
+1771433032116:eightyone <- plot_data %>%
+1771433032116:filter(year == 1981) %>%
+1771433032116:collect()  # execute and return to R
+1771433032144:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433032144:db_filtered <- plot_data %>%
+1771433032144:filter(plot_name == "ABPL") %>%
+1771433032144:group_by(year) %>%
+1771433032145:summarize(mean(richness)) %>%
+1771433032145:collect()
+1771433032239:db_filtered
+1771433032249:plot(db_filtered,
+1771433032249:main = "Plot :p",
+1771433032249:col = "blue")
+1771433032277:hist(db_filtered, col = "blue", main = "Hist Plot", xlab = "richness")
+1771433038411:library(RSQLite)
+1771433038412:library(tidyverse)
+1771433038412:#connect to the database with the dbConnect function
+1771433038413:#this database is stored in a folder on the server
+1771433038413:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433038416:dbListTables(con)
+1771433038418:#connect to your data tables
+1771433038418:#don’t actually load the data into memory yet
+1771433038418:plot_data <- tbl(con, "plot_data")
+1771433038428:plot_info <- tbl(con, "plot_info")
+1771433038437:#information in a data table
+1771433038437:dbListFields(con, "plot_data")
+1771433038439:# Now use dplyr verbs - they'll be translated to SQL
+1771433038439:eightyone <- plot_data %>%
+1771433038439:filter(year == 1981) %>%
+1771433038440:collect()  # execute and return to R
+1771433038464:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433038464:db_filtered <- plot_data %>%
+1771433038464:filter(plot_name == "ABPL") %>%
+1771433038464:group_by(year) %>%
+1771433038465:summarize(mean(richness)) %>%
+1771433038465:collect()
+1771433038539:db_filtered
+1771433038550:plot(db_filtered,
+1771433038550:main = "Plot :p",
+1771433038551:col = "blue")
+1771433038579:hist(db_filtered, col = "blue", main = "Hist Plot", xlab = "year")
+1771433059501:library(RSQLite)
+1771433059502:library(tidyverse)
+1771433059502:#connect to the database with the dbConnect function
+1771433059502:#this database is stored in a folder on the server
+1771433059502:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433059504:dbListTables(con)
+1771433059506:#connect to your data tables
+1771433059506:#don’t actually load the data into memory yet
+1771433059506:plot_data <- tbl(con, "plot_data")
+1771433059512:plot_info <- tbl(con, "plot_info")
+1771433059517:#information in a data table
+1771433059517:dbListFields(con, "plot_data")
+1771433059518:# Now use dplyr verbs - they'll be translated to SQL
+1771433059519:eightyone <- plot_data %>%
+1771433059519:filter(year == 1981) %>%
+1771433059519:collect()  # execute and return to R
+1771433059533:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433059533:db_filtered <- plot_data %>%
+1771433059533:filter(plot_name == "ABPL") %>%
+1771433059533:group_by(year) %>%
+1771433059533:summarize(mean(richness)) %>%
+1771433059533:collect()
+1771433059604:db_filtered
+1771433059614:plot(db_filtered,
+1771433059614:main = "Plot :p",
+1771433059615:col = "blue")
+1771433059642:hist(db_filtered, col = "blue", main = "Hist Plot", xlab = richness)
+1771433079499:library(RSQLite)
+1771433079499:library(tidyverse)
+1771433079499:#connect to the database with the dbConnect function
+1771433079500:#this database is stored in a folder on the server
+1771433079500:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433079502:dbListTables(con)
+1771433079503:#connect to your data tables
+1771433079503:#don’t actually load the data into memory yet
+1771433079504:plot_data <- tbl(con, "plot_data")
+1771433079509:plot_info <- tbl(con, "plot_info")
+1771433079515:#information in a data table
+1771433079515:dbListFields(con, "plot_data")
+1771433079516:# Now use dplyr verbs - they'll be translated to SQL
+1771433079517:eightyone <- plot_data %>%
+1771433079517:filter(year == 1981) %>%
+1771433079517:collect()  # execute and return to R
+1771433079531:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433079531:db_filtered <- plot_data %>%
+1771433079531:filter(plot_name == "ABPL") %>%
+1771433079532:group_by(year) %>%
+1771433079532:summarize(mean(richness)) %>%
+1771433079532:collect()
+1771433079608:db_filtered
+1771433079618:plot(db_filtered,
+1771433079618:main = "Plot :p",
+1771433079618:col = "black")
+1771433079646:hist(db_filtered, col = "blue", main = "Hist Plot", xlab = richness)
+1771433119511:library(RSQLite)
+1771433119511:library(tidyverse)
+1771433119512:#connect to the database with the dbConnect function
+1771433119512:#this database is stored in a folder on the server
+1771433119512:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433119514:dbListTables(con)
+1771433119515:#connect to your data tables
+1771433119515:#don’t actually load the data into memory yet
+1771433119516:plot_data <- tbl(con, "plot_data")
+1771433119521:plot_info <- tbl(con, "plot_info")
+1771433119527:#information in a data table
+1771433119527:dbListFields(con, "plot_data")
+1771433119528:# Now use dplyr verbs - they'll be translated to SQL
+1771433119528:eightyone <- plot_data %>%
+1771433119529:filter(year == 1981) %>%
+1771433119529:collect()  # execute and return to R
+1771433119544:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433119544:db_filtered <- plot_data %>%
+1771433119544:filter(plot_name == "ABPL") %>%
+1771433119544:group_by(year) %>%
+1771433119545:summarize(mean(richness)) %>%
+1771433119545:collect()
+1771433119618:db_filtered
+1771433119628:plot(db_filtered,
+1771433119628:main = "ABPL Richness plot Plot",
+1771433119628:col = "black")
+1771433119653:#don’t forget to disconnect
+1771433119653:# dbDisconnect(conn = con)
+1771433122187:library(RSQLite)
+1771433122188:library(tidyverse)
+1771433122188:#connect to the database with the dbConnect function
+1771433122188:#this database is stored in a folder on the server
+1771433122188:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433122190:dbListTables(con)
+1771433122192:#connect to your data tables
+1771433122192:#don’t actually load the data into memory yet
+1771433122192:plot_data <- tbl(con, "plot_data")
+1771433122197:plot_info <- tbl(con, "plot_info")
+1771433122203:#information in a data table
+1771433122203:dbListFields(con, "plot_data")
+1771433122204:# Now use dplyr verbs - they'll be translated to SQL
+1771433122204:eightyone <- plot_data %>%
+1771433122205:filter(year == 1981) %>%
+1771433122205:collect()  # execute and return to R
+1771433122219:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433122219:db_filtered <- plot_data %>%
+1771433122219:filter(plot_name == "ABPL") %>%
+1771433122219:group_by(year) %>%
+1771433122219:summarize(mean(richness)) %>%
+1771433122220:collect()
+1771433122283:db_filtered
+1771433122293:plot(db_filtered,
+1771433122293:main = "ABPL Richness Plot",
+1771433122293:col = "black")
+1771433122318:#don’t forget to disconnect
+1771433122318:# dbDisconnect(conn = con)
+1771433191159:library(RSQLite)
+1771433191159:library(tidyverse)
+1771433191159:#connect to the database with the dbConnect function
+1771433191160:#this database is stored in a folder on the server
+1771433191160:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433191163:dbListTables(con)
+1771433191164:#connect to your data tables
+1771433191164:#don’t actually load the data into memory yet
+1771433191164:plot_data <- tbl(con, "plot_data")
+1771433191170:plot_info <- tbl(con, "plot_info")
+1771433191176:#information in a data table
+1771433191176:dbListFields(con, "plot_data")
+1771433191177:# Now use dplyr verbs - they'll be translated to SQL
+1771433191177:eightyone <- plot_data %>%
+1771433191177:filter(year == 1981) %>%
+1771433191178:collect()  # execute and return to R
+1771433191192:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433191193:db_filtered_ABPL <- plot_data %>%
+1771433191193:filter(plot_name == "ABPL") %>%
+1771433191193:group_by(year) %>%
+1771433191193:summarize(mean(richness)) %>%
+1771433191193:collect()
+1771433191256:db_filtered_ABPL
+1771433191266:plot(db_filtered_ABPL,
+1771433191266:main = "ABPL Richness Plot",
+1771433191266:col = "black")
+1771433191291:db_filtered_BUCA <- plot_data %>%
+1771433191291:filter(plot_name == "BUCA") %>%
+1771433191291:group_by(year) %>%
+1771433191291:summarize(mean(richness)) %>%
+1771433191291:collect()
+1771433191365:db_filtered_BUCA
+1771433191378:#don’t forget to disconnect
+1771433191378:# dbDisconnect(conn = con)
+1771433206370:library(RSQLite)
+1771433206370:library(tidyverse)
+1771433206370:#connect to the database with the dbConnect function
+1771433206371:#this database is stored in a folder on the server
+1771433206371:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433206373:dbListTables(con)
+1771433206374:#connect to your data tables
+1771433206374:#don’t actually load the data into memory yet
+1771433206375:plot_data <- tbl(con, "plot_data")
+1771433206381:plot_info <- tbl(con, "plot_info")
+1771433206387:#information in a data table
+1771433206387:dbListFields(con, "plot_data")
+1771433206388:# Now use dplyr verbs - they'll be translated to SQL
+1771433206388:eightyone <- plot_data %>%
+1771433206388:filter(year == 1981) %>%
+1771433206389:collect()  # execute and return to R
+1771433206402:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433206402:db_filtered_ABPL <- plot_data %>%
+1771433206403:filter(plot_name == "ABPL") %>%
+1771433206403:group_by(year) %>%
+1771433206403:summarize(mean(richness)) %>%
+1771433206403:collect()
+1771433206476:db_filtered_ABPL
+1771433206486:plot(db_filtered_ABPL,
+1771433206487:main = "ABPL Richness Plot",
+1771433206487:col = "black")
+1771433206511:db_filtered_BUCA <- plot_data %>%
+1771433206511:filter(plot_name == "BUCA") %>%
+1771433206511:group_by(year) %>%
+1771433206512:summarize(mean(richness)) %>%
+1771433206512:collect()
+1771433206626:db_filtered_BUCA
+1771433206639:plot(db_filtered_ABPL,
+1771433206639:main = "ABPL Richness Plot",
+1771433206639:col = "red")
+1771433206664:#don’t forget to disconnect
+1771433206664:# dbDisconnect(conn = con)
+1771433215754:library(RSQLite)
+1771433215755:library(tidyverse)
+1771433215755:#connect to the database with the dbConnect function
+1771433215755:#this database is stored in a folder on the server
+1771433215755:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433215757:dbListTables(con)
+1771433215759:#connect to your data tables
+1771433215759:#don’t actually load the data into memory yet
+1771433215759:plot_data <- tbl(con, "plot_data")
+1771433215765:plot_info <- tbl(con, "plot_info")
+1771433215770:#information in a data table
+1771433215770:dbListFields(con, "plot_data")
+1771433215771:# Now use dplyr verbs - they'll be translated to SQL
+1771433215771:eightyone <- plot_data %>%
+1771433215772:filter(year == 1981) %>%
+1771433215772:collect()  # execute and return to R
+1771433215786:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433215786:db_filtered_ABPL <- plot_data %>%
+1771433215787:filter(plot_name == "ABPL") %>%
+1771433215787:group_by(year) %>%
+1771433215787:summarize(mean(richness)) %>%
+1771433215787:collect()
+1771433215849:db_filtered_ABPL
+1771433215868:plot(db_filtered_ABPL,
+1771433215868:main = "ABPL Richness Plot",
+1771433215869:col = "black")
+1771433215897:db_filtered_BUCA <- plot_data %>%
+1771433215897:filter(plot_name == "BUCA") %>%
+1771433215897:group_by(year) %>%
+1771433215897:summarize(mean(richness)) %>%
+1771433215897:collect()
+1771433215961:db_filtered_BUCA
+1771433216024:plot(db_filtered_ABPL,
+1771433216024:main = "BUCA Richness Plot",
+1771433216025:col = "red")
+1771433216050:#don’t forget to disconnect
+1771433216050:# dbDisconnect(conn = con)
+1771433235668:library(RSQLite)
+1771433235669:library(tidyverse)
+1771433235669:#connect to the database with the dbConnect function
+1771433235669:#this database is stored in a folder on the server
+1771433235669:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433235672:dbListTables(con)
+1771433235675:#connect to your data tables
+1771433235676:#don’t actually load the data into memory yet
+1771433235676:plot_data <- tbl(con, "plot_data")
+1771433235682:plot_info <- tbl(con, "plot_info")
+1771433235687:#information in a data table
+1771433235687:dbListFields(con, "plot_data")
+1771433235692:# Now use dplyr verbs - they'll be translated to SQL
+1771433235692:eightyone <- plot_data %>%
+1771433235693:filter(year == 1981) %>%
+1771433235693:collect()  # execute and return to R
+1771433235707:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433235707:db_filtered_ABPL <- plot_data %>%
+1771433235707:filter(plot_name == "ABPL") %>%
+1771433235712:group_by(year) %>%
+1771433235712:summarize(mean(richness)) %>%
+1771433235712:collect()
+1771433235783:db_filtered_ABPL
+1771433235793:plot(db_filtered_ABPL,
+1771433235794:main = "ABPL Richness Plot",
+1771433235794:col = "black")
+1771433235821:db_filtered_BUCA <- plot_data %>%
+1771433235822:filter(plot_name == "BUCA") %>%
+1771433235822:group_by(year) %>%
+1771433235822:summarize(mean(richness)) %>%
+1771433235822:collect()
+1771433235945:db_filtered_BUCA
+1771433235958:plot(db_filtered_BUCA,
+1771433235958:main = "BUCA Richness Plot",
+1771433235958:col = "red")
+1771433235984:#don’t forget to disconnect
+1771433235984:# dbDisconnect(conn = con)
+1771433293998:library(RSQLite)
+1771433293999:library(tidyverse)
+1771433293999:#connect to the database with the dbConnect function
+1771433293999:#this database is stored in a folder on the server
+1771433293999:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433294002:dbListTables(con)
+1771433294004:#connect to your data tables
+1771433294004:#don’t actually load the data into memory yet
+1771433294004:plot_data <- tbl(con, "plot_data")
+1771433294011:plot_info <- tbl(con, "plot_info")
+1771433294018:#information in a data table
+1771433294019:dbListFields(con, "plot_data")
+1771433294020:# Now use dplyr verbs - they'll be translated to SQL
+1771433294020:eightyone <- plot_data %>%
+1771433294021:filter(year == 1981) %>%
+1771433294021:collect()  # execute and return to R
+1771433294040:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433294040:db_filtered_ABPL <- plot_data %>%
+1771433294040:filter(plot_name == "ABPL") %>%
+1771433294040:group_by(year) %>%
+1771433294040:summarize(mean(richness)) %>%
+1771433294041:collect()
+1771433294115:db_filtered_ABPL
+1771433294126:plot(db_filtered_ABPL,
+1771433294126:main = "ABPL Richness Plot",
+1771433294126:col = "black")
+1771433294155:db_filtered_BUCA <- plot_data %>%
+1771433294155:filter(plot_name == "BUCA") %>%
+1771433294156:group_by(year) %>%
+1771433294156:summarize(mean(richness)) %>%
+1771433294156:collect()
+1771433294285:db_filtered_BUCA
+1771433294297:plot(db_filtered_BUCA,
+1771433294297:main = "BUCA Richness Plot",
+1771433294297:col = "red")
+1771433294323:#don’t forget to disconnect
+1771433294324:# dbDisconnect(conn = con)
+1771433340543:library(RSQLite)
+1771433340543:library(tidyverse)
+1771433340544:#connect to the database with the dbConnect function
+1771433340544:#this database is stored in a folder on the server
+1771433340544:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771433340546:dbListTables(con)
+1771433340548:#connect to your data tables
+1771433340548:#don’t actually load the data into memory yet
+1771433340548:plot_data <- tbl(con, "plot_data")
+1771433340553:plot_info <- tbl(con, "plot_info")
+1771433340559:#information in a data table
+1771433340559:dbListFields(con, "plot_data")
+1771433340560:# Now use dplyr verbs - they'll be translated to SQL
+1771433340560:eightyone <- plot_data %>%
+1771433340560:filter(year == 1981) %>%
+1771433340560:collect()  # execute and return to R
+1771433340574:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771433340574:db_filtered_ABPL <- plot_data %>%
+1771433340574:filter(plot_name == "ABPL") %>%
+1771433340574:group_by(year) %>%
+1771433340574:summarize(mean(richness)) %>%
+1771433340574:collect()
+1771433340646:db_filtered_ABPL
+1771433340656:plot(db_filtered_ABPL,
+1771433340656:main = "ABPL Richness Plot",
+1771433340656:col = "black")
+1771433340681:db_filtered_BUCA <- plot_data %>%
+1771433340681:filter(plot_name == "BUCA") %>%
+1771433340681:group_by(year) %>%
+1771433340682:summarize(mean(richness)) %>%
+1771433340682:collect()
+1771433340797:db_filtered_BUCA
+1771433340809:plot(db_filtered_BUCA,
+1771433340809:main = "BUCA Richness Plot",
+1771433340809:col = "red")
+1771433340834:db_filtered_BUCB <- plot_data %>%
+1771433340835:filter(plot_name == "BUCA") %>%
+1771433340835:group_by(year) %>%
+1771433340835:summarize(mean(richness)) %>%
+1771433340835:collect()
+1771433340968:db_filtered_BUCB
+1771433340981:plot(db_filtered_BUCB,
+1771433340981:main = "BUCB Richness Plot",
+1771433340981:col = "red")
+1771433341012:#don’t forget to disconnect
+1771433341012:# dbDisconnect(conn = con)
+1771478019351:library(RSQLite)
+1771478019352:library(tidyverse)
+1771478019353:#connect to the database with the dbConnect function
+1771478019353:#this database is stored in a folder on the server
+1771478019353:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771478019371:dbListTables(con)
+1771478019381:#connect to your data tables
+1771478019382:#don’t actually load the data into memory yet
+1771478019382:plot_data <- tbl(con, "plot_data")
+1771478019511:plot_info <- tbl(con, "plot_info")
+1771478019517:#information in a data table
+1771478019517:dbListFields(con, "plot_data")
+1771478019518:# Now use dplyr verbs - they'll be translated to SQL
+1771478019518:eightyone <- plot_data %>%
+1771478019519:filter(year == 1981) %>%
+1771478019519:collect()  # execute and return to R
+1771478019561:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771478019561:db_filtered_ABPL <- plot_data %>%
+1771478019561:filter(plot_name == "ABPL") %>%
+1771478019561:group_by(year) %>%
+1771478019561:summarize(mean(richness)) %>%
+1771478019561:collect()
+1771478019634:db_filtered_ABPL
+1771478019652:plot(db_filtered_ABPL,
+1771478019652:main = "ABPL Richness Plot",
+1771478019652:col = "black")
+1771478019681:db_filtered_BUCA <- plot_data %>%
+1771478019681:filter(plot_name == "BUCA") %>%
+1771478019681:group_by(year) %>%
+1771478019681:summarize(mean(richness)) %>%
+1771478019682:collect()
+1771478019809:db_filtered_BUCA
+1771478019822:plot(db_filtered_BUCA,
+1771478019822:main = "BUCA Richness Plot",
+1771478019822:col = "red")
+1771478019847:db_filtered_BUCB <- plot_data %>%
+1771478019848:filter(plot_name == "BUCA") %>%
+1771478019848:group_by(year) %>%
+1771478019848:summarize(mean(richness)) %>%
+1771478019848:collect()
+1771478019908:db_filtered_BUCB
+1771478019919:plot(db_filtered_BUCB,
+1771478019919:main = "BUCB Richness Plot",
+1771478019919:col = "red")
+1771478019960:#don’t forget to disconnect
+1771478019960:# dbDisconnect(conn = con)
+1771478052840:library(RSQLite)
+1771478052840:library(tidyverse)
+1771478052840:#connect to the database with the dbConnect function
+1771478052840:#this database is stored in a folder on the server
+1771478052840:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1771478052859:dbListTables(con)
+1771478052861:#connect to your data tables
+1771478052861:#don’t actually load the data into memory yet
+1771478052861:plot_data <- tbl(con, "plot_data")
+1771478052867:plot_info <- tbl(con, "plot_info")
+1771478052872:#information in a data table
+1771478052873:dbListFields(con, "plot_data")
+1771478052874:# Now use dplyr verbs - they'll be translated to SQL
+1771478052874:eightyone <- plot_data %>%
+1771478052874:filter(year == 1981) %>%
+1771478052874:collect()  # execute and return to R
+1771478052889:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1771478052889:db_filtered_ABPL <- plot_data %>%
+1771478052889:filter(plot_name == "ABPL") %>%
+1771478052889:group_by(year) %>%
+1771478052889:summarize(mean(richness)) %>%
+1771478052890:collect()
+1771478052953:db_filtered_ABPL
+1771478052963:plot(db_filtered_ABPL,
+1771478052963:main = "ABPL Richness Plot",
+1771478052964:col = "black")
+1771478052990:db_filtered_BUCA <- plot_data %>%
+1771478052991:filter(plot_name == "BUCA") %>%
+1771478052991:group_by(year) %>%
+1771478052991:summarize(mean(richness)) %>%
+1771478052991:collect()
+1771478053113:db_filtered_BUCA
+1771478053125:plot(db_filtered_BUCA,
+1771478053125:main = "BUCA Richness Plot",
+1771478053126:col = "red")
+1771478053150:db_filtered_BUCB <- plot_data %>%
+1771478053150:filter(plot_name == "BUCB") %>%
+1771478053151:group_by(year) %>%
+1771478053151:summarize(mean(richness)) %>%
+1771478053151:collect()
+1771478053267:db_filtered_BUCB
+1771478053287:plot(db_filtered_BUCB,
+1771478053288:main = "BUCB Richness Plot",
+1771478053288:col = "red")
+1771478053316:#don’t forget to disconnect
+1771478053316:# dbDisconnect(conn = con)
+1772471738297:library(tidyverse)
+1772472181817:getwd()
+1772472199524:list.files()
+1772472246278:feeder_data <- read_csv("/home/shared/feederwatch/filename.csv")
+1772472267767:list.files("/", recursive = FALSE)
+1772660542462:library(RSQLite)
+1772660542638:library(tidyverse)
+1772660543489:#connect to the database with the dbConnect function
+1772660543489:#this database is stored in a folder on the server
+1772660543489:con <- dbConnect(SQLite(), "../../shared/mtsthelens.db")
+1772660543493:dbListTables(con)
+1772660543502:#connect to your data tables
+1772660543502:#don’t actually load the data into memory yet
+1772660543502:plot_data <- tbl(con, "plot_data")
+1772660543616:plot_info <- tbl(con, "plot_info")
+1772660543621:#information in a data table
+1772660543621:dbListFields(con, "plot_data")
+1772660543622:# Now use dplyr verbs - they'll be translated to SQL
+1772660543622:eightyone <- plot_data %>%
+1772660543622:filter(year == 1981) %>%
+1772660543622:collect()  # execute and return to R
+1772660543647:# Look at the ABPL years grouped and mean richness each year at that plot :p
+1772660543647:db_filtered_ABPL <- plot_data %>%
+1772660543647:filter(plot_name == "ABPL") %>%
+1772660543647:group_by(year) %>%
+1772660543647:summarize(mean(richness)) %>%
+1772660543647:collect()
+1772660543723:db_filtered_ABPL
+1772660543740:plot(db_filtered_ABPL,
+1772660543740:main = "ABPL Richness Plot",
+1772660543741:col = "black")
+1772660543761:db_filtered_BUCA <- plot_data %>%
+1772660543761:filter(plot_name == "BUCA") %>%
+1772660543761:group_by(year) %>%
+1772660543762:summarize(mean(richness)) %>%
+1772660543762:collect()
+1772660543860:db_filtered_BUCA
+1772660543872:plot(db_filtered_BUCA,
+1772660543872:main = "BUCA Richness Plot",
+1772660543872:col = "red")
+1772660543886:db_filtered_BUCB <- plot_data %>%
+1772660543886:filter(plot_name == "BUCB") %>%
+1772660543886:group_by(year) %>%
+1772660543886:summarize(mean(richness)) %>%
+1772660543886:collect()
+1772660544022:db_filtered_BUCB
+1772660544033:plot(db_filtered_BUCB,
+1772660544033:main = "BUCB Richness Plot",
+1772660544034:col = "red")
+1772660544054:#don’t forget to disconnect
+1772660544054:# dbDisconnect(conn = con)
+1772660752725:library(tidyverse)
+1772660752726:df <- read.table("../../shared/state_census.csv")
+1772660758462:library(tidyverse)
+1772660758463:df <- read.csv("../../shared/state_census.csv")
+1772661031256:gewtwd()
+1772661038351:getwd()
+1772661082111:getwd()
+1772661082112:library(tidyverse)
+1772661082112:df <- read.csv("state_census.csv")
+1772661102610:getwd()
+1772661102611:library(tidyverse)
+1772661102612:# df <- read.csv("../../shared/state_census.csv")
+1772661102613:subset_birds <- read.csv("https://tinyurl.com/recent-bird-subset")
+1772661103964:birds_df <- read.csv("https://tinyurl.com/bird-info")
+1772661120805:getwd()
+1772661120807:library(tidyverse)
+1772661120808:# df <- read.csv("../../shared/state_census.csv")
+1772661120809:subset_birds <- read.csv("https://tinyurl.com/recent-bird-subset")
+1772661121657:# birds_df <- read.csv("https://tinyurl.com/bird-info")
+1772661121658:sites_df <- read.csv("https://tinyurl.com/observation-site-info")
+1772661144069:getwd()
+1772661144070:library(tidyverse)
+1772661144071:# df <- read.csv("../../shared/state_census.csv")
+1772661144072:subset_birds <- read.csv("https://tinyurl.com/recent-bird-subset")
+1772661144928:# birds_df <- read.csv("https://tinyurl.com/bird-info")
+1772661144929:sites_df <- read.csv("https://tinyurl.com/observation-site-info")
+1772661148407:head(sites_df)
+1772661168389:getwd()
+1772661168390:library(tidyverse)
+1772661168391:# df <- read.csv("../../shared/state_census.csv")
+1772661168391:subset_birds <- read.csv("https://tinyurl.com/recent-bird-subset")
+1772661169174:# birds_df <- read.csv("https://tinyurl.com/bird-info")
+1772661169175:sites_df <- read.csv("https://tinyurl.com/observation-site-info")
+1772661172100:head(subset_birds)
+1772661214512:list.files()
+1772661315478:list.files("../shared")
+1772661322186:list.files("../shared")
+1772661322187:df <- read.csv("../shared/state_census.csv")
+1772661518695:source("~/.active-rstudio-document", echo=TRUE)
+1772661525304:source("~/.active-rstudio-document", echo=TRUE)
+1775145252003:chmod +x find_rare_birds
+1775145422331:$ cd /data/ch02
+1775145428947:cd /data/ch02
+1775145481881:pwd
+1775146226016:curl -sL "https://www.gutenberg.ord/files/11/11-0.txt"
+1775146243726:#!/bin/bash
+1775146243727:# ============================================================
+1775146243727:# find_rare_birds
+1775146243727:# ------------------------------------------------------------
+1775146243727:# This script identifies rare bird sightings from CSV files.
+1775146243727:#
+1775146243727:# Usage:
+1775146243727:#   ./find_rare_birds file1.csv file2.csv ...
+1775146243727:#
+1775146243727:# Output:
+1775146243728:#   rare_birds.csv          -> species observed exactly once overall
+1775146243728:#   rare_birds_yearly.csv   -> species observed once per year
+1775146243728:#
+1775146243728:# Requirements:
+1775146243728:#   - Input files must be CSV with consistent column structure
+1775146243728:#   - Header must be present
+1775146243728:#
+1775146243728:# Author: [Your Name]
+1775146243728:# ============================================================
+1775146243729:# Check if input is provided
+1775146243729:if [ "$#" -eq 0 ]; then
+1775146341396:#!/bin/bash
+1775146341396:# ============================================================
+1775146341396:# find_rare_birds
+1775146341396:# ------------------------------------------------------------
+1775146341396:# This script identifies rare bird sightings from CSV files.
+1775146341396:#
+1775146341396:# Usage:
+1775146341397:#   ./find_rare_birds file1.csv file2.csv ...
+1775146341397:#
+1775146341397:# Output:
+1775146341397:#   rare_birds.csv          -> species observed exactly once overall
+1775146341397:#   rare_birds_yearly.csv   -> species observed once per year
+1775146341397:#
+1775146341397:# Author: [Bailey Chapman]
+1775146341397:# ============================================================
+1775146341397:# Check if input is provided
+1775146341398:if [ "$#" -eq 0 ]; then
+1775146387559:chmod +x find_rare_birds
+1775146425919:q()
