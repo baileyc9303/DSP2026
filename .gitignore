@@ -1,3 +1,6 @@
+hello.pub
+*.key
+.ssh/
 .local/
 .Rhistory
 .RData
