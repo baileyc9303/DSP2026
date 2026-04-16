@@ -1,16 +1,0 @@
-]0;~[?2004h[bailey_chapman@ip-10-140-2-9 ~]$ git init
-[?2004l[33mhint: Using 'master' as the name for the initial branch. This default branch name[m
-[33mhint: is subject to change. To configure the initial branch name to use in all[m
-[33mhint: of your new repositories, which will suppress this warning, call:[m
-[33mhint:[m
-[33mhint: 	git config --global init.defaultBranch <name>[m
-[33mhint:[m
-[33mhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and[m
-[33mhint: 'development'. The just-created branch can be renamed via this command:[m
-[33mhint:[m
-[33mhint: 	git branch -m <name>[m
-[33mhint:[m
-[33mhint: Disable this message with "git config set advice.defaultBranchName false"[m
-Initialized empty Git repository in /home/bailey_chapman/.git/
-]0;~[?2004h[bailey_chapman@ip-10-140-2-9 ~]$ git add .
-[?2004l
