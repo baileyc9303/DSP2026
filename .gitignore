@@ -1,0 +1,6 @@
+.local/
+.Rhistory
+.RData
+.Rproj.user/
+.sh_history
+

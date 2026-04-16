@@ -1,1 +1,0 @@
-2026-04-02T15:54:20.178657Z [rsession-bailey_chapman] WARNING Private command disabled, unsupported $HISTCONTROL: [ignoredups]; LOGGED FROM: bool rstudio::core::terminal::PrivateCommand::output(const string&) src/cpp/core/terminal/PrivateCommand.cpp:265
